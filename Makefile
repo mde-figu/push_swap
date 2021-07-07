@@ -6,13 +6,13 @@
 #    By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 14:48:36 by mde-figu          #+#    #+#              #
-#    Updated: 2021/07/02 19:41:01 by mde-figu         ###   ########.fr        #
+#    Updated: 2021/07/07 15:11:39 by mde-figu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES		=
+FILES		= utils.c
 
-SRCS_PATH	= ./srcs
+SRCS_PATH	= ./srcs/
 
 LIBFT_PATH	= ./libft
 
@@ -38,7 +38,7 @@ COMP		= clang
 
 AR			= ar -rcs
 
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -v
 
 .c.o:		${COMP} ${FLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
 

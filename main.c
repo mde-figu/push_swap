@@ -6,11 +6,11 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/02 19:48:39 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:02:36 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 char	to_list(char *str, t_lst **l)
 {
