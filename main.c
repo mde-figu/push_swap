@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/07 15:02:36 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/07/07 17:25:35 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ char	to_list(char *str, t_lst **l)
 		return (0);
 	new = (t_lst *)malloc(sizeof(t_lst));
 	if (!new)
+		return (0);
+	new->value = atoi2(str, &err);
+	if (err)
 		return (0);
 	new->next = NULL;
 	if (!(*l))
@@ -41,18 +44,21 @@ int	test_n(int argc, char **argv)
 
 	err = 0;
 	if (argc <= 1)
+	{
 		if (argc < 0 || atoi2(*argv++, &err))
 			return (write(1, "Error1\n", 6));
+	}
 	else
 		return (0);
 	var[0] = atoi2(*argv++, &err);
 	var[1] = atoi2(*argv++, &err);
-	if ((var[0] && err) || var[1] && err)
+	if ((var[0] && err) || (var[1] && err))
 		return (write(1, "error2\n", 6));
 	var[2] = atoi2(*argv, &err);
 	if (var[2] && err)
 		return (write(1, "error3\n", 6));
 	// aqui ordenaremos
+	return (0); //tirar isso
 }
 
 void	testargs(int argc, char **argv)
@@ -64,17 +70,18 @@ void	testargs(int argc, char **argv)
 	while (*ptr)
 	{
 		write(1, *ptr, sizeof(*ptr));
-		*ptr++;
+		//*ptr++;
 	}
 	write(1, "\n", 1);
+	free (ptr); //isso não pode ficar assim
 }
 
 int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
 	int		len;
-	t_lst	*ptr;
-	int		i;
+	//t_lst	*ptr;
+	//int		i;
 
 	testargs(argc, argv);
 	l_a = NULL;
