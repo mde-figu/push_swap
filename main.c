@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/07 17:25:35 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/07/17 17:35:02 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ int	main(int argc, char **argv)
 		if (!(to_list(*argv++, &l_a)))
 			return (write(1, "Error\n", 6));
 //	while (l_a)
-//		pop(&l_a);
+//		pop(&l_a); << estava pensando op pop
 }
