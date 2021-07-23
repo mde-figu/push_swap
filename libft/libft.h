@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:04:23 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/06/25 17:52:34 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/07/19 14:24:47 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,6 @@ void				ft_putstr(char *str);
 void				print_multiple_char(int i, char c);
 int					ft_pow_pos(int n, int exp);
 char				*ft_ftoa(float n, int precision);
+int					ft_strcmp(const char *s1, const char *s2);
+char				**ft_strsplit(char const *s, char c);
 #endif

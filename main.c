@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/17 19:14:12 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/07/23 17:48:09 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,25 +64,32 @@ int	test_n(int argc, char **argv)
 void	testargs(int argc, char **argv)
 {
 	char	**ptr;
+	int		i;
 
+	i = 0;
 	ptr = argv;
 	write(1, ft_itoa(argc), sizeof(argc));
-	while (*ptr)
+	while (*argv && ++i)
 	{
-		write(1, *ptr, sizeof(*ptr));
-		//*ptr++;
+		if (!valid_num(*argv) || appears_twice(*argv, ptr, i - 1)
+			|| greater_than_int(*argv))
+			write(1, "errooou", 7);
+		argv++;
 	}
-	write(1, "\n", 1);
-	free (ptr); //isso não pode ficar assim
 }
 
 int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
+	t_lst	*l_b;
 	int		len;
-	//t_lst	*ptr;
-	//int		i;
+	char	**tmp;
 
+	(void)l_b;
+	if (argc < 2)
+		return (0);
+	else if (argc == 2)
+		tmp = ft_strsplit(*(argv + 1), ' ');
 	testargs(argc, argv);
 	l_a = NULL;
 	if (argc <= 1)

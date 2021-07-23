@@ -6,7 +6,7 @@
 #    By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 12:07:51 by gkenzo-s          #+#    #+#              #
-#    Updated: 2021/03/18 23:15:42 by mde-figu         ###   ########.fr        #
+#    Updated: 2021/07/19 14:25:19 by mde-figu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,12 @@ BONUS_OBJ = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o \
 			ft_lstmap.o
 
 ADDITIONAL_SRC = ft_itohex.c ft_max_width.c ft_putchar.c ft_putstr.c \
-				 ft_put_n_char.c ft_power_of.c ft_ftoa.c
+				 ft_put_n_char.c ft_power_of.c ft_ftoa.c ft_strcmp.c \
+				ft_strsplit.c
 
 ADDITIONAL_OBJ = ft_itohex.o ft_max_width.o ft_putchar.o ft_putstr.o \
-				 ft_put_n_char.o ft_power_of.o ft_ftoa.o
+				 ft_put_n_char.o ft_power_of.o ft_ftoa.o ft_strcmp.o \
+				ft_strsplit.o
 
 all: $(NAME)
 
