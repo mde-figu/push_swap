@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/23 17:48:09 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/07/23 18:02:39 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void	testargs(int argc, char **argv)
 
 	i = 0;
 	ptr = argv;
-	write(1, ft_itoa(argc), sizeof(argc));
+	printf("%i", argc);
 	while (*argv && ++i)
 	{
-		if (!valid_num(*argv) || appears_twice(*argv, ptr, i - 1)
-			|| greater_than_int(*argv))
+		if (valid_num(*argv) != 0 || appears_twice(*argv, ptr, i - 1) != 0
+			|| greater_than_int(*argv) != 0)
 			write(1, "errooou", 7);
 		argv++;
 	}
