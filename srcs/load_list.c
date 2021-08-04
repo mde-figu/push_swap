@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   load_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/28 10:13:00 by mde-figu         ###   ########.fr       */
+/*   Created: 2021/07/28 10:09:56 by mde-figu          #+#    #+#             */
+/*   Updated: 2021/07/28 11:15:06 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "../libft/libft.h"
-# define TRUE 1
-# define FALSE 0
+#include "../include/push_swap.h"
 
-typedef struct s_lst
+int	to_list(char *str, t_lst **l)
 {
-	int				value;
-	struct s_lst	*next;
-}					t_lst;
+	char	err;
+	t_lst	*new;
 
-int		atoi2(const char *str, char *err);
-void	testargs(char **argv);
-int		to_list(char *str, t_lst **l);
-int		test_n(int argc, char **argv);
-
-#endif
+	err = '\0';
+	if (!l)
+		return (0);
+	new = (t_lst *)malloc(sizeof(t_lst));
+	if (!new)
+	{
+		free(new);
+		return (0);
+	}
+	new->value = atoi2(str, &err);
+	new->next = NULL;
+	if (!(*l))
+		*l = new;
+	else
+	{
+		new->next = *l;
+		*l = new;
+	}
+	free(new);
+	return (1);
+}

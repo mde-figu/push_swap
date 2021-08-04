@@ -6,36 +6,11 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/23 18:02:39 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/04 13:44:29 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
-
-char	to_list(char *str, t_lst **l)
-{
-	char	err;
-	t_lst	*new;
-
-	err = '\0';
-	if (!l)
-		return (0);
-	new = (t_lst *)malloc(sizeof(t_lst));
-	if (!new)
-		return (0);
-	new->value = atoi2(str, &err);
-	if (err)
-		return (0);
-	new->next = NULL;
-	if (!(*l))
-		*l = new;
-	else
-	{
-		new->next = *l;
-		*l = new;
-	}
-	return (1);
-}
 
 int	test_n(int argc, char **argv)
 {
@@ -61,23 +36,6 @@ int	test_n(int argc, char **argv)
 	return (0); //tirar isso
 }
 
-void	testargs(int argc, char **argv)
-{
-	char	**ptr;
-	int		i;
-
-	i = 0;
-	ptr = argv;
-	printf("%i", argc);
-	while (*argv && ++i)
-	{
-		if (valid_num(*argv) != 0 || appears_twice(*argv, ptr, i - 1) != 0
-			|| greater_than_int(*argv) != 0)
-			write(1, "errooou", 7);
-		argv++;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
@@ -85,13 +43,20 @@ int	main(int argc, char **argv)
 	int		len;
 	char	**tmp;
 
-	(void)l_b;
+	(void)l_b; //tirar
 	if (argc < 2)
 		return (0);
 	else if (argc == 2)
 		tmp = ft_strsplit(*(argv + 1), ' ');
-	testargs(argc, argv);
-	l_a = NULL;
+	else
+		tmp = argv + 1;
+	write(1, tmp[0], 1);
+	write(1, tmp[1], 1);
+	write(1, tmp[2], 1);
+	write(1, tmp[3], 1);
+	write(1, tmp[4], 1);
+	l_a = 0;
+	testargs(tmp);
 	if (argc <= 1)
 		return (write(1, "error\n", 6));
 	len = 0;
@@ -100,5 +65,5 @@ int	main(int argc, char **argv)
 		return (test_n(argc - 1, argv));
 	while (*argv && ++len)
 		if (!(to_list(*argv++, &l_a)))
-			return (write(1, "Error\n", 6));
+			return (write(1, "Error-1\n", 8));
 }
