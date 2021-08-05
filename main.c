@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/04 13:48:11 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/04 17:54:15 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ int	test_n(int argc, char **argv)
 	return (0); //tirar isso
 }
 
+static void	**freeentry(char **str, size_t i)
+{
+	size_t	j;
+
+	j = 0;
+	while (j < i)
+		free(str[j++]);
+	free(str);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
@@ -50,11 +61,11 @@ int	main(int argc, char **argv)
 		tmp = ft_strsplit(*(argv + 1), ' ');
 	else
 		tmp = argv + 1;
-	write(1, tmp[0], sizeof(tmp[0]));
-	write(1, tmp[1], sizeof(tmp[1]));
-	write(1, tmp[2], sizeof(tmp[2]));
-	write(1, tmp[3], sizeof(tmp[3]));
-	write(1, tmp[4], sizeof(tmp[4]));
+	write(1, tmp[0], 2);
+	write(1, tmp[1], 1);
+	write(1, tmp[2], 1);
+	write(1, tmp[3], 1);
+	write(1, tmp[4], 1);
 	l_a = 0;
 	testargs(tmp);
 	if (argc <= 1)
@@ -62,7 +73,10 @@ int	main(int argc, char **argv)
 	len = 0;
 	l_a = NULL;
 	if (argc <= 4)
+	{
 		return (test_n(argc - 1, argv));
+		freeentry(tmp, sizeof(tmp));
+	}
 	while (*argv && ++len)
 		if (!(to_list(*argv++, &l_a)))
 			return (write(1, "Error\n", 8));

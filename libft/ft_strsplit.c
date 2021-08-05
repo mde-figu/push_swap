@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:22:53 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/23 17:47:18 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/04 17:59:26 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,20 @@ char	**ft_strsplit(char const *s, char c)
 	size_t	i;
 	size_t	ii;
 
-	str = (char **)malloc((word_len(s, c) + 1) * 8);
+	str = (char **)malloc(word_len(s, c));
 	if (!s || !str)
+	{
+		freeentry(str, sizeof(str));
 		return (0);
+	}
 	i = 0;
 	while (*s != '\0')
 	{
 		if (*s != '\0')
 		{
-			str[i] = (char *)malloc(letter_len(s, c) + 1);
+			str[i] = (char *)malloc(letter_len(s, c));
 			if (!str[i])
-				return ((char **)freeentry(str, i));
+				return ((char **)freeentry(str, sizeof(str)));
 			ii = 0;
 			while (*s != c && *s != '\0')
 				str[i][ii++] = *s++;
