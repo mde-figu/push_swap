@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:22:53 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/04 17:59:26 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/06 12:59:40 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	**freeentry(char **str, size_t i)
 	size_t	j;
 
 	j = 0;
-	while (j < i)
+	while (j <= i)
 		free(str[j++]);
 	free(str);
 	return (0);

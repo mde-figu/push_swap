@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/04 17:54:15 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/27 18:37:30 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@ int	test_n(int argc, char **argv)
 	if (argc <= 1)
 	{
 		if (argc < 0 || atoi2(*argv++, &err))
-			return (write(1, "Error1\n", 6));
+			return (write(1, "No numbers\n", 6));
 	}
-	else
-		return (0);
 	var[0] = atoi2(*argv++, &err);
 	var[1] = atoi2(*argv++, &err);
-	if ((var[0] && err) || (var[1] && err))
+	if ((var[0]) || (var[1]))
 		return (write(1, "error2\n", 6));
 	var[2] = atoi2(*argv, &err);
-	if (var[2] && err)
+	if (var[2])
 		return (write(1, "error3\n", 6));
 	// aqui ordenaremos
 	return (0); //tirar isso
@@ -47,6 +45,21 @@ static void	**freeentry(char **str, size_t i)
 	return (0);
 }
 
+t_lst	init_a(char *argv[])
+{
+	t_lst *tmp;
+	char	*err;
+	int		i;
+
+	tmp = NULL;
+	i = 1;
+	while (argv[i] != '\0')
+	{
+		add_to_back(&a, atoi2(argv[i], &err))
+	}
+
+}
+
 int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
@@ -58,26 +71,30 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	else if (argc == 2)
-		tmp = ft_strsplit(*(argv + 1), ' ');
+		tmp = ft_strsplit(argv[1], ' ');
 	else
 		tmp = argv + 1;
-	write(1, tmp[0], 2);
-	write(1, tmp[1], 1);
-	write(1, tmp[2], 1);
-	write(1, tmp[3], 1);
-	write(1, tmp[4], 1);
-	l_a = 0;
+	//write(1, tmp[0], 2);
+	//write(1, tmp[1], 1);
+	//write(1, tmp[2], 1);
+	//write(1, tmp[3], 1);
+	//write(1, tmp[4], 1);
 	testargs(tmp);
 	if (argc <= 1)
-		return (0);
+		return (write(1, "error, argc <= 1\n", 17));
 	len = 0;
 	l_a = NULL;
-	if (argc <= 4)
+	l_a = init_a(argv);
+	printf(" Argc = %i\n", argc - 1);
+	//if (argc -1 == 3)
+	//	case_three(); 
+	if (argc - 1 <= 4)
 	{
-		return (test_n(argc - 1, argv));
+		test_n(argc - 1, argv);
 		freeentry(tmp, sizeof(tmp));
 	}
 	while (*argv && ++len)
 		if (!(to_list(*argv++, &l_a)))
+	//	printf("%i", l_a->value);
 			return (write(1, "Error\n", 8));
 }

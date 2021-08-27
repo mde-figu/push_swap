@@ -6,7 +6,7 @@
 #    By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 14:48:36 by mde-figu          #+#    #+#              #
-#    Updated: 2021/08/04 18:15:06 by mde-figu         ###   ########.fr        #
+#    Updated: 2021/08/06 12:39:44 by mde-figu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ FLAGS		= -Wall -Wextra -Werror -v
 $(NAME):	${OBJS}
 			@make -C $(GNL_PATH)
 			@make -C $(LIBFT_PATH)
-			${COMP} ${FLAGS} -fsanitize=address -fsanitize=leak -g -o ${NAME} ${OBJS} $(LIBFT) $(GNL)
+#			${COMP} ${FLAGS} -fsanitize=address -fsanitize=leak -g -o ${NAME} ${OBJS} $(LIBFT) $(GNL)
+			${COMP} ${FLAGS} -g -o ${NAME} ${OBJS} $(LIBFT) $(GNL)
 
 all:		${NAME}
 
