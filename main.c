@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/31 17:24:44 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/31 17:32:48 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,7 @@ int	main(int argc, char **argv)
 		return (write(1, "error, argc <= 1\n", 17));
 	len = 0;
 	l_a = NULL;
-	l_a = init_stack
-(argv);
-	printf("%i", l_a->value);
-	printf("%i", l_a->next->value);
-	printf("%i", l_a->next->next->value);
-	printf("%i", l_a->next->next->next->value);
-	printf("%i", l_a->next->next->next->next->value);
+	l_a = init_stack(argv);
 	printf(" Argc = %i\n", argc - 1);
 	//if (argc -1 == 3)
 	//	case_three(); 
@@ -102,7 +96,12 @@ int	main(int argc, char **argv)
 		test_n(argc - 1, argv);
 		freeentry(tmp, sizeof(tmp));
 	}
+	printf("%i", l_a->value);
+	printf("%i", l_a->next->value);
+	printf("%i", l_a->next->next->value);
+	printf("%i", l_a->next->next->next->value);
+	printf("%i", l_a->next->next->next->next->value);
 	while (*argv && ++len)
-		if (!(to_list(*argv++, &l_a)))
+		if (!(to_list(*argv++, &l_a))) // Tem merda acontecendo aqui
 			return (write(1, "Error\n", 8));
 }
