@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/28 10:13:00 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/31 13:31:20 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ int		atoi2(const char *str, char *err);
 void	testargs(char **argv);
 int		to_list(char *str, t_lst **l);
 int		test_n(int argc, char **argv);
+void	add_to_back(t_lst **head, int input);
+int		lst_len(t_lst *ls);
+t_lst	*new_lst(int input);
 
 #endif

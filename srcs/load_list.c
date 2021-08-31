@@ -6,11 +6,42 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 10:09:56 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/28 11:15:06 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:08:50 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+t_lst	*new_lst(int input)
+{
+	t_lst	*head;
+
+	head = (t_lst *)malloc(sizeof(t_lst));
+	head->value = input;
+	head->next = NULL;
+	return (head);
+}
+
+void	add_to_back(t_lst **head, int input)
+{
+	t_lst *tmp;
+	t_lst *add;
+
+	if (*head == NULL)
+	{
+		*head = new_lst(input);
+	}
+	else
+	{
+		add = (t_lst *)malloc(sizeof(t_lst));
+		add->value = input;
+		add->next = NULL;
+		tmp = *head;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = add;
+	}
+}
 
 int	to_list(char *str, t_lst **l)
 {

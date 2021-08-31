@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/27 18:37:30 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/31 17:24:44 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,21 @@ static void	**freeentry(char **str, size_t i)
 	return (0);
 }
 
-t_lst	init_a(char *argv[])
+t_lst	*init_stack(char *argv[])
 {
 	t_lst *tmp;
 	char	*err;
 	int		i;
 
+	err = NULL;
 	tmp = NULL;
 	i = 1;
-	while (argv[i] != '\0')
+	while (argv[i] != NULL)
 	{
-		add_to_back(&a, atoi2(argv[i], &err))
+		add_to_back(&tmp, atoi2(argv[i], err));
+		i++;
 	}
+	return (tmp);
 
 }
 
@@ -84,7 +87,13 @@ int	main(int argc, char **argv)
 		return (write(1, "error, argc <= 1\n", 17));
 	len = 0;
 	l_a = NULL;
-	l_a = init_a(argv);
+	l_a = init_stack
+(argv);
+	printf("%i", l_a->value);
+	printf("%i", l_a->next->value);
+	printf("%i", l_a->next->next->value);
+	printf("%i", l_a->next->next->next->value);
+	printf("%i", l_a->next->next->next->next->value);
 	printf(" Argc = %i\n", argc - 1);
 	//if (argc -1 == 3)
 	//	case_three(); 
@@ -95,6 +104,5 @@ int	main(int argc, char **argv)
 	}
 	while (*argv && ++len)
 		if (!(to_list(*argv++, &l_a)))
-	//	printf("%i", l_a->value);
 			return (write(1, "Error\n", 8));
 }

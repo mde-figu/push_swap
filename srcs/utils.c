@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 18:26:11 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/07/28 10:06:12 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/31 13:31:56 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,22 @@ int	atoi2(const char *str, char *err)
 			return ((*err = 1));
 	}
 	return (val * sg);
+}
+
+int	lst_len(t_lst *ls)
+{
+	int		ret;
+	t_lst	*tmp;
+
+	if (ls == NULL)
+		return (0);
+	ret = 0;
+	tmp = ls;
+	while (tmp != NULL)
+	{
+		ret++;
+		tmp = tmp->next;
+	}
+	return (ret);
 }
 
