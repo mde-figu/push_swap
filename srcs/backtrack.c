@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 13:03:00 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/05 13:26:34 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/05 14:12:16 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	eval_stack(char **sw, char **rot, char **rrot, _Bool label)
 		*rrot = "rrb\n";
 	}
 }
-int	backtrack(t_lst **l, int n, t_vars vars, _Bool label)
+int	backtrack(t_lst **l, int n, t_vars **vars, _Bool label)
 {
 	char	*sw;
 	char	*rot;
