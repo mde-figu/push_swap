@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/31 17:32:48 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/02 15:39:07 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,9 @@ int	test_n(int argc, char **argv)
 	var[2] = atoi2(*argv, &err);
 	if (var[2])
 		return (write(1, "error3\n", 6));
-	// aqui ordenaremos
-	return (0); //tirar isso
-}
-
-static void	**freeentry(char **str, size_t i)
-{
-	size_t	j;
-
-	j = 0;
-	while (j < i)
-		free(str[j++]);
-	free(str);
 	return (0);
 }
+
 
 t_lst	*init_stack(char *argv[])
 {
@@ -67,6 +56,7 @@ int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
 	t_lst	*l_b;
+	t_vars	*vars;
 	int		len;
 	char	**tmp;
 
@@ -77,24 +67,26 @@ int	main(int argc, char **argv)
 		tmp = ft_strsplit(argv[1], ' ');
 	else
 		tmp = argv + 1;
-	//write(1, tmp[0], 2);
-	//write(1, tmp[1], 1);
-	//write(1, tmp[2], 1);
-	//write(1, tmp[3], 1);
-	//write(1, tmp[4], 1);
 	testargs(tmp);
+	//freeentry(tmp, sizeof(tmp));
 	if (argc <= 1)
 		return (write(1, "error, argc <= 1\n", 17));
 	len = 0;
 	l_a = NULL;
 	l_a = init_stack(argv);
+	len = lst_len(l_a);
 	printf(" Argc = %i\n", argc - 1);
-	//if (argc -1 == 3)
-	//	case_three(); 
-	if (argc - 1 <= 4)
+
+	if (argc - 1 <= 4 && test_n(argc - 1, argv) == 0)
 	{
-		test_n(argc - 1, argv);
-		freeentry(tmp, sizeof(tmp));
+		if (!sorted(&l_a))
+		{
+			vars = set_vars(l_a);
+			sort(&l_a, &l_b, vars);
+		}
+		else
+			return (0);
+	
 	}
 	printf("%i", l_a->value);
 	printf("%i", l_a->next->value);

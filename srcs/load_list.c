@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 10:09:56 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/30 13:08:50 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/02 14:46:36 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_lst	*new_lst(int input)
 {
 	t_lst	*head;
 
-	head = (t_lst *)malloc(sizeof(t_lst));
+	head = (t_lst *)malloc(sizeof(t_lst)); //ta dando merda aqui
 	head->value = input;
 	head->next = NULL;
 	return (head);
@@ -40,6 +40,7 @@ void	add_to_back(t_lst **head, int input)
 		while (tmp->next != NULL)
 			tmp = tmp->next;
 		tmp->next = add;
+		//free(tmp); //ainda nao ta bom
 	}
 }
 

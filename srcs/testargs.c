@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:04:26 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/08/04 13:38:36 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/08/31 18:16:43 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,20 @@ void	testargs(char **argv)
 			write(1, "Error", 5);
 		argv++;
 	}
+}
+
+int	sorted(t_lst **l_a)
+{
+	t_lst *tmp;
+
+	tmp = *l_a;
+	if (*l_a == NULL)
+		return (TRUE);
+	while (tmp->next != NULL)
+	{
+		if (tmp->value > tmp->next->value)
+			return (FALSE);
+		tmp = tmp->next;
+	}
+	return (TRUE);
 }

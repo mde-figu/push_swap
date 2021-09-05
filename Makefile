@@ -6,11 +6,11 @@
 #    By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 14:48:36 by mde-figu          #+#    #+#              #
-#    Updated: 2021/08/06 12:39:44 by mde-figu         ###   ########.fr        #
+#    Updated: 2021/09/05 13:45:46 by mde-figu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES		= utils.c testargs.c load_list.c
+FILES		= utils.c testargs.c load_list.c vars.c set_free.c sort.c backtrack.c opers.c un_opers.c
 
 SRCS_PATH	= srcs/
 
