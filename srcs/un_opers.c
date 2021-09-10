@@ -6,13 +6,13 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 13:29:37 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/05 13:59:24 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:20:26 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void		un_push(t_list **dst, t_lst **src)
+void		un_push(t_lst **dst, t_lst **src)
 {
 	t_lst	*tmp_next_src;
 
@@ -32,7 +32,7 @@ void		un_swap(t_lst **head)
 	{
 		tmp_swap = (*head)->next;
 		(*head)->next = tmp_swap->next;
-		tmp_elem->next = *head;
+		tmp_swap->next = *head;
 		*head = tmp_swap;
 	}
 }

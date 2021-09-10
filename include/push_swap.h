@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/05 14:28:50 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:18:25 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 # include "../libft/libft.h"
 # define TRUE 1
 # define FALSE 0
+# define SHIFT_RIGHT 0
+# define SHIFT_LEFT 1
 
 typedef struct s_lst
 {
-	int				value;
+	int				*value;
 	size_t			value_size;
 	struct s_lst	*next;
 }					t_lst;
@@ -47,17 +49,21 @@ int			test_n(int argc, char **argv);
 void		add_to_back(t_lst **head, int input);
 int			lst_len(t_lst *ls);
 t_lst		*new_lst(int input);
-
+void		ft_lstadd(t_lst **alst, t_lst *new);
+/* opers */
+void		erase_opers(t_vars *vars);
 /* sorting */
 int			sorted(t_lst **l_a);
 void		sort(t_lst **l_a, t_lst **l_b, t_vars *vars);
+int			ps_qsort(t_lst **l_a, t_lst **l_b, t_vars *vars);
+_Bool		eval_sort(t_lst *l_a, t_lst *l_b);
 /* backtracking */
-int			backtrack(t_lst **l, int n, t_vars **vars, _Bool label);
+int			backtrack(t_lst **l, int n, t_vars *vars, _Bool label);
 void		push(t_lst **dst, t_lst **src, t_vars vars, char *op);
 void		swap(t_lst **l, t_vars *vars, char *op);
 void		rotate(t_lst **l, t_vars *vars, char *op);
 void		rev_rotate(t_lst **l, t_vars *vars, char *op);
-void		un_push(t_list **dst, t_lst **src);
+void		un_push(t_lst **dst, t_lst **src);
 void		un_swap(t_lst **head);
 void		un_rotate(t_lst **head);
 void		un_rev_rotate(t_lst **head);

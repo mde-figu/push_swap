@@ -6,11 +6,29 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 12:36:44 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/05 14:30:17 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/09 19:16:09 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+_Bool	eval_sort(t_lst *l_a, t_lst *l_b)
+{
+	int		previous;
+
+	if (l_b || !l_a)
+		return (FALSE);
+	previous = *(int*)(l_a->value);
+	l_a = l_a->next;
+	while (l_a)
+	{
+		if (*(int*)(l_a->value) < previous)
+			return (FALSE);
+		previous = *(int*)(l_a->value);
+		l_a = l_a->next;
+	}
+	return (TRUE);
+}
 
 void	sort(t_lst **l_a, t_lst **l_b, t_vars *vars)
 {
@@ -20,7 +38,7 @@ void	sort(t_lst **l_a, t_lst **l_b, t_vars *vars)
 	n = 1;
 	len = lst_len(*l_a);
 	if (len <= 6)
-		while (!backtrack(l_a, n, &vars, 0))
+		while (!backtrack(l_a, n, vars, 0))
 		++n;
 	else
 	{
