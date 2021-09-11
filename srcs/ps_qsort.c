@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 14:50:42 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/05 17:44:15 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/11 00:55:55 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ps_qsort(t_lst **l_a, t_lst **l_b, t_vars *vars)
 	{
 		while (((vars->parts_b)[0])--)
 			push(l_a, l_b, vars, "pa\n");
-		shift_part_b(vars, SHIFT_LEFT);
+		shift_b_part(vars, SHIFT_LEFT);
 	}
 	if ((vars->parts_b)[0])
 		ps_qsort(l_a, l_b, vars);

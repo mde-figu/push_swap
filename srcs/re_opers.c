@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:44:36 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/10 23:35:32 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/10 23:57:42 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	re_push_a(t_lst **l_a, t_lst **l_b, t_vars *vars)
 			rev_rotate(l_a, vars, "rra\n");
 		if (*(int*)((*l_a)->value) <= vars->piv &&\
 				((vars->parts_a)[0])-- && ++((vars->parts_b)[0]) && half--)
-			get_cost(l_a, l_b, vars);
+			get_back(l_a, l_b, vars);
 		else if (++q)
 			rotate(l_a, vars, "ra\n");
 	}

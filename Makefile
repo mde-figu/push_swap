@@ -6,13 +6,13 @@
 #    By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 14:48:36 by mde-figu          #+#    #+#              #
-#    Updated: 2021/09/10 13:45:04 by mde-figu         ###   ########.fr        #
+#    Updated: 2021/09/11 00:42:42 by mde-figu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES		= utils.c testargs.c load_list.c vars.c set_free.c sort.c\
 			backtrack.c opers.c un_opers.c ps_qsort.c erase_opers.c ft_lstadd.c\
-			ran_sort.c re_opers.c
+			ran_sort.c re_opers.c utils_qsort.c utils_qsort_2.c
 
 SRCS_PATH	= srcs/
 
