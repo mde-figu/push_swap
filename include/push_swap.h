@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/10 13:18:25 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:44:24 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@ t_lst		*new_lst(int input);
 void		ft_lstadd(t_lst **alst, t_lst *new);
 /* opers */
 void		erase_opers(t_vars *vars);
+
+/* re_opers */
+void		re_push_a(t_lst **l_a, t_lst **l_b, t_vars *vars);
 /* sorting */
 int			sorted(t_lst **l_a);
 void		sort(t_lst **l_a, t_lst **l_b, t_vars *vars);
 int			ps_qsort(t_lst **l_a, t_lst **l_b, t_vars *vars);
 _Bool		eval_sort(t_lst *l_a, t_lst *l_b);
+int			ran_sort(t_lst *ls, int len, _Bool label);
 /* backtracking */
 int			backtrack(t_lst **l, int n, t_vars *vars, _Bool label);
 void		push(t_lst **dst, t_lst **src, t_vars vars, char *op);
