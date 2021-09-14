@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 13:29:37 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/10 13:20:26 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:14:01 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void		un_push(t_lst **dst, t_lst **src)
 {
-	t_lst	*tmp_next_src;
+	t_lst	*tmp;
 
 	if (src && *src)
 	{
-		tmp_next_src = (*src)->next;
+		tmp = (*src)->next;
 		ft_lstadd(dst, *src);
-		*src = tmp_next_src;
+		*src = tmp;
 	}
 }
 

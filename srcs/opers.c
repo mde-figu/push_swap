@@ -6,15 +6,15 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 13:28:54 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/09 21:19:49 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/11 13:52:06 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	push(t_lst **dst, t_lst **src, t_vars vars, char *op)
+void	push(t_lst **dst, t_lst **src, t_vars *vars, char *op)
 {
-	(vars.opers)[(vars.index)++] = ft_strdup(op);
+	(vars->opers)[(vars->index)++] = ft_strdup(op);
 	un_push(dst, src);
 }
 

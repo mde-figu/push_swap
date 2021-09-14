@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 23:46:33 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/11 00:34:23 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/13 21:29:03 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ _Bool		is_between(t_lst *l_a, t_lst *l_b, int one, int two)
 		if (l_b)
 			l_b = l_b->next;
 	}
-	return (n);
+	return (c);
 }
 /* need to swap, verifica valor se atual maior que o proximo e se nao existe 
 um pivot no meio, caso positivo faz o Swap da stack a*/
@@ -56,8 +56,8 @@ void		push_rest_b(t_lst **l_a, t_lst **l_b, t_vars *vars)
 		if ((vars->parts_b)[0] >= 1 && *(int*)((*l_b)->value) <\
 				*(int*)((*l_b)->next->value))
 			swap(l_b, vars, "sb\n");
-		if ((*l_a)->next && *(int*)((*l_a)->value) >\)
-				*(int*)((*l_a)->next->value)
+		if ((*l_a)->next && *(int*)((*l_a)->value) >\
+				*(int*)((*l_a)->next->value))
 			swap(l_a, vars, "sa\n");
 		push(l_a, l_b, vars, "pa\n");
 	}

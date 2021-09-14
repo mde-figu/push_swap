@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/11 00:57:47 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:29:23 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,22 @@ t_vars		*set_vars(t_lst *l_a);
 int			to_list(char *str, t_lst **l);
 int			test_n(int argc, char **argv);
 void		add_to_back(t_lst **head, int input);
+t_lst		*lstn(t_lst *ls, size_t n);
 int			lst_len(t_lst *ls);
-t_lst		*new_lst(int input);
+t_lst		*new_lst(const void *value, size_t value_size);
 void		ft_lstadd(t_lst **alst, t_lst *new);
 /* opers */
+void		ops_print(char **operations);
 void		erase_opers(t_vars *vars);
-
+void		push(t_lst **dst, t_lst **src, t_vars *vars, char *op);
+void		swap(t_lst **l, t_vars *vars, char *op);
+void		rotate(t_lst **l, t_vars *vars, char *op);
+void		rev_rotate(t_lst **l, t_vars *vars, char *op);
 /* re_opers */
 void		re_push_a(t_lst **l_a, t_lst **l_b, t_vars *vars);
 void		re_push_b(t_lst **l_a, t_lst **l_b, t_vars *vars, int c);
+int			get_middle(t_lst *ls, int len);
+_Bool		eval_rrr(t_lst *ls, int piv, _Bool label);
 /* sorting */
 int			sorted(t_lst **l_a);
 void		sort(t_lst **l_a, t_lst **l_b, t_vars *vars);
@@ -63,17 +70,15 @@ int			ps_qsort(t_lst **l_a, t_lst **l_b, t_vars *vars);
 _Bool		eval_sort(t_lst *l_a, t_lst *l_b);
 int			ran_sort(t_lst *ls, int len, _Bool label);
 _Bool		is_between(t_lst *l_a, t_lst *l_b, int one, int two);
+_Bool		is_reversed(t_lst *ls);
 void		need_to_swap(t_lst **l_a, t_lst **l_b, t_vars *vars);
 void		get_back(t_lst **l_a, t_lst **l_b, t_vars *vars);
 void		push_rest_b(t_lst **l_a, t_lst **l_b, t_vars *vars);
-int			sort_three(t_lst **l_a, t_vars *vars);
+void		sort_three(t_lst **l_a, t_vars *vars);
 void		shift_b_part(t_vars *vars, _Bool label);
+
 /* backtracking */
 int			backtrack(t_lst **l, int n, t_vars *vars, _Bool label);
-void		push(t_lst **dst, t_lst **src, t_vars vars, char *op);
-void		swap(t_lst **l, t_vars *vars, char *op);
-void		rotate(t_lst **l, t_vars *vars, char *op);
-void		rev_rotate(t_lst **l, t_vars *vars, char *op);
 void		un_push(t_lst **dst, t_lst **src);
 void		un_swap(t_lst **head);
 void		un_rotate(t_lst **head);

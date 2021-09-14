@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/05 14:28:26 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:39:03 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,23 @@ int	test_n(int argc, char **argv)
 }
 
 
-t_lst	*init_stack(char *argv[])
+void	init_stack(char **tmp, t_lst **l_a)
 {
-	t_lst *tmp;
-	char	*err;
-	int		i;
+	t_lst	*head;
+	void	*val;
 
-	err = NULL;
-	tmp = NULL;
-	i = 1;
-	while (argv[i] != NULL)
+	if (!(val = ft_memalloc(sizeof(int))))
+		ft_error_memory();
+	head = 0;
+	while (*tmp)
 	{
-		add_to_back(&tmp, atoi2(argv[i], err));
-		i++;
+		*((int*)val) = ft_atoi(*tmp++);
+		ft_lstadd(&head, new_lst(val, sizeof(int)));
 	}
-	return (tmp);
-
+	free(val);
+	*l_a = 0;
+	while (head)
+		un_push(l_a, &head);
 }
 
 int	main(int argc, char **argv)
@@ -57,43 +58,24 @@ int	main(int argc, char **argv)
 	t_lst	*l_a;
 	t_lst	*l_b;
 	t_vars	*vars;
-	int		len;
 	char	**tmp;
 
-	(void)l_b; //tirar
 	if (argc < 2)
 		return (0);
 	else if (argc == 2)
-		tmp = ft_strsplit(argv[1], ' ');
+		tmp = ft_strsplit(*(argv + 1), ' ');
 	else
 		tmp = argv + 1;
+	l_b = 0;
 	testargs(tmp);
-	//freeentry(tmp, sizeof(tmp));
-	if (argc <= 1)
-		return (write(1, "error, argc <= 1\n", 17));
-	len = 0;
-	l_a = NULL;
-	l_a = init_stack(argv);
-	len = lst_len(l_a);
-	printf(" Argc = %i\n", argc - 1);
-
-	if (argc - 1 <= 4 && test_n(argc - 1, argv) == 0)
-	{
-		if (!sorted(&l_a))
-		{
-			vars = set_vars(l_a);
-			sort(&l_a, &l_b, vars);
-		}
-		else
-			return (0);
-	
-	}
-	printf("%i", l_a->value);
-	printf("%i", l_a->next->value);
-	printf("%i", l_a->next->next->value);
-	printf("%i", l_a->next->next->next->value);
-	printf("%i", l_a->next->next->next->next->value);
-	while (*argv && ++len)
-		if (!(to_list(*argv++, &l_a))) // Tem merda acontecendo aqui
-			return (write(1, "Error\n", 8));
+	init_stack(tmp, &l_a);
+	vars = set_vars(l_a);
+	sort(&l_a, &l_b, vars);
+	ops_print(vars->opers);
+	printf("%i", *l_a->value);
+	printf("%i", *l_a->next->value);
+	printf("%i", *l_a->next->next->value);
+	printf("%i", *l_a->next->next->next->value);
+	printf("%i", *l_a->next->next->next->next->value);
+	return (0);
 }

@@ -6,42 +6,39 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 10:09:56 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/09 19:13:57 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:09:12 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_lst	*new_lst(int input)
+static void	*memfree(t_lst *node)
 {
-	t_lst	*head;
-
-	head = (t_lst *)malloc(sizeof(t_lst)); //ta dando merda aqui
-	head->value = &input;
-	head->next = NULL;
-	return (head);
+	free(node);
+	return (0);
 }
 
-void	add_to_back(t_lst **head, int input)
+t_lst	*new_lst(const void *value, size_t value_size)
 {
-	t_lst *tmp;
-	t_lst *add;
+	t_lst	*node;
 
-	if (*head == NULL)
+	if (!(node = (t_lst*)malloc(sizeof(t_lst))))
+		return (0);
+	node->next = 0;
+	if (!value)
 	{
-		*head = new_lst(input);
+		node->value = 0;
+		node->value_size = 0;
 	}
 	else
 	{
-		add = (t_lst *)malloc(sizeof(t_lst));
-		add->value = &input;
-		add->next = NULL;
-		tmp = *head;
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = add;
-		//free(tmp); //ainda nao ta bom
+		node->value_size = value_size;
+		if (!(node->value = malloc(node->value_size)))
+			return ((t_lst*)memfree(node));
+		ft_bzero(node->value, node->value_size);
+		ft_memcpy(node->value, value, node->value_size);
 	}
+	return (node);
 }
 
 int	to_list(char *str, t_lst **l)
