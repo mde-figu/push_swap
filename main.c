@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 19:39:03 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:58:19 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ int	main(int argc, char **argv)
 	vars = set_vars(l_a);
 	sort(&l_a, &l_b, vars);
 	ops_print(vars->opers);
-	printf("%i", *l_a->value);
-	printf("%i", *l_a->next->value);
-	printf("%i", *l_a->next->next->value);
-	printf("%i", *l_a->next->next->next->value);
-	printf("%i", *l_a->next->next->next->next->value);
+	//printf("%i", *l_a->value);
+	//printf("%i", *l_a->next->value);
+	//printf("%i", *l_a->next->next->value);
+	//printf("%i", *l_a->next->next->next->value);
+	//printf("%i", *l_a->next->next->next->next->value);
 	return (0);
 }

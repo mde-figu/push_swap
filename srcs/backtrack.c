@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 13:03:00 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/09 19:15:25 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 21:48:43 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	eval_stack(char **sw, char **rot, char **rrot, _Bool label)
 	else
 	{
 		*sw = "sa\n";
-		*rot = "rb\n";
-		*rrot = "rrb\n";
+		*rot = "ra\n";
+		*rrot = "rra\n";
 	}
 }
 
@@ -54,8 +54,7 @@ int	backtrack(t_lst **l, int n, t_vars *vars, _Bool label)
 		return (1);
 	rotate(l, vars, rot);
 	if (!backtrack(l, n - 1, vars, label) && rollback(vars))
-		un_rev_rotate(l); // nao esta claro se un_rotate ou un_rev_rotate
-
+		un_rev_rotate(l);
 	else
 		return (1);
 	rev_rotate(l, vars, rrot);
