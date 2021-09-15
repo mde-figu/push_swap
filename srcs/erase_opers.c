@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:58:37 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/13 13:16:42 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 22:01:48 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	erase_opers(t_vars *vars)
 	c = 0;
 	while ((vars->opers)[c] && (vars->opers)[c + 1])
 	{
-		if (!ft_strcmp((vars->opers)[c], "sa\n") || (!ft_strcmp((vars->opers)[c], "sb\n")
-			&& !ft_strcmp((vars->opers)[c], (vars->opers)[c + 1])))
+		if ((!ft_strcmp((vars->opers)[c], "sa\n") || !ft_strcmp((vars->opers)[c], "sb\n"))
+			&& !ft_strcmp((vars->opers)[c], (vars->opers)[c + 1]))
 			clean_elem(vars, c--);
 		else if (!ft_strcmp((vars->opers)[c], "pa\n") || !ft_strcmp((vars->opers)[c], "pb\n")
 				|| !ft_strcmp((vars->opers)[c], "ra\n") || !ft_strcmp((vars->opers)[c], "rra\n")
