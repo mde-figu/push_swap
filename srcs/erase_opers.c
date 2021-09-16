@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:58:37 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 22:01:48 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/14 22:04:46 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void rotate_or_push(t_vars *vars, int *c)
 		clean_elem(vars, (*c)--);
 }
 
+/*Erase_opers limpa operacoes redundantes, pex. um pa seguido de pb*/
 void	erase_opers(t_vars *vars)
 {
 	int		c;

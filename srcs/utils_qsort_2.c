@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 00:35:36 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 16:40:42 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/15 16:22:18 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int		get_middle(t_lst *ls, int len)
 	int		ret;
 	int		c;
 
+	printf("%i", *ls->next->value);
 	head = ls;
 	c = len;
 	ret = 0;
@@ -98,10 +99,11 @@ int		get_middle(t_lst *ls, int len)
 		greater = compare(head, len, *(int*)(ls->value), 1);
 		if (!(len % 2) && greater == less + 1)
 			ret = *(int*)(ls->value);
-		else if (len % 2 && greater == less)
+		else if (len % 2 && less == greater)
 			ret = *(int*)(ls->value);
 		ls = ls->next;
 	}
+	
 	return (ret);
 }
 
@@ -127,7 +129,7 @@ _Bool	is_reversed(t_lst *ls)
 		ls = ls->next;
 	}
 	if (add1 > add2 && ran_sort(mid, lst_len(mid), 0) >\
-						(int)((double)lst_len(mid) + 0.75))
+						(int)((double)lst_len(mid) * 0.75))
 		return (1);
 	return (0);
 }

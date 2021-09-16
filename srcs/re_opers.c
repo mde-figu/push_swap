@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:44:36 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/13 21:27:34 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/15 16:35:50 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@ void	re_push_a(t_lst **l_a, t_lst **l_b, t_vars *vars)
 	int		go_rra;
 
 	q = 0;
-	if ((vars->parts_a)[0] % 2)
+	if (((vars->parts_a)[0] % 2) == 0)
 		half = (vars->parts_a)[0] / 2 + 1;
 	else
 		half = (vars->parts_a)[0] / 2;
-
+	write(1, "entrou", 6);
 	vars->piv = get_middle(*l_a, (vars->parts_a)[0]);
 	shift_b_part(vars, SHIFT_RIGHT);
 	if (!(vars->parts_b)[1])
 		vars->need_rev = is_reversed(*l_a);
 	else
 		vars->need_rev = 0;
+	write(1, "entrou", 6);
 	go_rra = eval_rrr(*l_a, vars->piv, 0);
 	while (half)
 	{

@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 18:26:11 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 18:03:44 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/15 16:44:29 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,14 @@ int	atoi2(const char *str, char *err)
 	return (val * sg);
 }
 
-int	lst_len(t_lst *ls)
+size_t	lst_len(t_lst *ls)
 {
-	int		ret;
-	t_lst	*tmp;
+	int		len;
 
-	if (ls == NULL)
-		return (0);
-	ret = 0;
-	tmp = ls;
-	while (tmp != NULL)
-	{
-		ret++;
-		tmp = tmp->next;
-	}
-	return (ret);
+	len = 0;
+	while (ls && ++ls)
+		ls = ls->next;
+	return (len);
 }
 
 void	*ft_memalloc(size_t size)

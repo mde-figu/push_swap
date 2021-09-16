@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 17:29:23 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/16 14:19:54 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ int			to_list(char *str, t_lst **l);
 int			test_n(int argc, char **argv);
 void		add_to_back(t_lst **head, int input);
 t_lst		*lstn(t_lst *ls, size_t n);
-int			lst_len(t_lst *ls);
+size_t		lst_len(t_lst *ls);
 t_lst		*new_lst(const void *value, size_t value_size);
 void		ft_lstadd(t_lst **alst, t_lst *new);
+void		set_mem_free(t_lst *l_a, t_lst *l_b, t_vars *vars);
 /* opers */
 void		ops_print(char **operations);
 void		erase_opers(t_vars *vars);
