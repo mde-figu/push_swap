@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:22:53 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/17 08:56:54 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 13:55:04 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	letter_len(const char *s, char c)
 	return (i);
 }
 
-static void	**freeentry(char **str, size_t i)
+static int	**freeentry(char **str, size_t i)
 {
 	size_t	j;
 
@@ -58,10 +58,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	str = (char **)malloc(word_len(s, c));
 	if (!s || !str)
-	{
-		freeentry(str, sizeof(str));
-		return (0);
-	}
+		return ((char **)freeentry(str, sizeof(str)));
 	i = 0;
 	while (*s != '\0')
 	{

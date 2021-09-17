@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 12:36:44 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/17 12:07:07 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:24:57 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ _Bool	eval_sort(t_lst *l_a, t_lst *l_b)
 
 	if (l_b || !l_a)
 		return (FALSE);
-	previous = *(int*)(l_a->value);
+	previous = *(int *)(l_a->value);
 	l_a = l_a->next;
 	while (l_a)
 	{
-		if (*(int*)(l_a->value) < previous)
+		if (*(int *)(l_a->value) < previous)
 			return (FALSE);
-		previous = *(int*)(l_a->value);
+		previous = *(int *)(l_a->value);
 		l_a = l_a->next;
 	}
 	return (TRUE);

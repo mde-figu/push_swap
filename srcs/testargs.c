@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:04:26 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/16 15:47:03 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:28:56 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static _Bool	appears_twice(char *c, char **argv, size_t index)
 void	testargs(char **argv)
 {
 	char	**ptr;
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	ptr = argv;
@@ -76,7 +76,7 @@ void	testargs(char **argv)
 
 int	sorted(t_lst **l_a)
 {
-	t_lst *tmp;
+	t_lst	*tmp;
 
 	tmp = *l_a;
 	if (*l_a == NULL)

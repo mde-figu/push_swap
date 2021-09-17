@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/17 12:35:32 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 13:44:21 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_lst
 	struct s_lst	*next;
 }					t_lst;
 
-typedef struct		s_vars
+typedef struct s_vars
 {
 	char			**opers;
 	int				*parts_a;
@@ -86,6 +86,5 @@ void		un_push(t_lst **dst, t_lst **src);
 void		un_swap(t_lst **head);
 void		un_rotate(t_lst **head);
 void		un_rev_rotate(t_lst **head);
-
 
 #endif

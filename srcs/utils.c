@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 18:26:11 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/17 11:43:55 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:19:34 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ void	*ft_memalloc(size_t size)
 {
 	void	*mem;
 
-	if (!(mem = malloc(size)))
-		return ((void*)0);
+	mem = malloc(size);
+	if (!mem)
+		return ((void *)0);
 	while (size)
-		((unsigned char*)mem)[--size] = 0;
+		((unsigned char *)mem)[--size] = 0;
 	return (mem);
 }
 
@@ -67,4 +68,3 @@ void	ft_error_memory(void)
 	write(2, "Memory allocated error.\n", 24);
 	exit(1);
 }
-

@@ -6,13 +6,13 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 13:29:37 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 20:53:25 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:18:14 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void		un_push(t_lst **dst, t_lst **src)
+void	un_push(t_lst **dst, t_lst **src)
 {
 	t_lst	*tmp;
 
@@ -24,7 +24,7 @@ void		un_push(t_lst **dst, t_lst **src)
 	}
 }
 
-void		un_swap(t_lst **head)
+void	un_swap(t_lst **head)
 {
 	t_lst		*tmp_swap;
 
@@ -45,7 +45,7 @@ static t_lst	*prelast_elem(t_lst *lst)
 	return (lst);
 }
 
-void		un_rotate(t_lst **head)
+void	un_rotate(t_lst **head)
 {
 	t_lst		*tmp_first;
 	t_lst		*tmp_tail;
@@ -60,7 +60,7 @@ void		un_rotate(t_lst **head)
 	}
 }
 
-void		un_rev_rotate(t_lst **head)
+void	un_rev_rotate(t_lst **head)
 {
 	t_lst	*tmp_prelast;
 

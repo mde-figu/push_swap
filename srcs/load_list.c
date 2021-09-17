@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 10:09:56 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/17 10:57:35 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:22:24 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ void	init_stack(char **tmp, t_lst **l_a)
 	t_lst	*head;
 	void	*val;
 
-	if (!(val = ft_memalloc(sizeof(int))))
+	val = ft_memalloc(sizeof(int));
+	if (!val)
 		ft_error_memory();
 	head = 0;
 	while (*tmp)
 	{
-		*((int*)val) = ft_atoi(*tmp++);
+		*((int *)val) = ft_atoi(*tmp++);
 		ft_lstadd(&head, new_lst(val, sizeof(int)));
 	}
 	free(val);
@@ -41,7 +42,8 @@ t_lst	*new_lst(const void *val, size_t value_size)
 {
 	t_lst	*ls;
 
-	if (!(ls = (t_lst*)malloc(sizeof(t_lst))))
+	ls = (t_lst *)malloc(sizeof(t_lst));
+	if (!ls)
 		return (0);
 	ls->next = 0;
 	if (!val)
@@ -52,8 +54,9 @@ t_lst	*new_lst(const void *val, size_t value_size)
 	else
 	{
 		ls->value_size = value_size;
-		if (!(ls->value = malloc(ls->value_size)))
-			return ((t_lst*)memfree(ls));
+		ls->value = malloc(ls->value_size);
+		if (!ls->value)
+			return ((t_lst *)memfree(ls));
 		ft_bzero(ls->value, ls->value_size);
 		ft_memcpy(ls->value, val, ls->value_size);
 	}
