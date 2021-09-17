@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 18:26:11 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/15 16:44:29 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:43:55 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ size_t	lst_len(t_lst *ls)
 	int		len;
 
 	len = 0;
-	while (ls && ++ls)
+	while (ls && ++len)
 		ls = ls->next;
 	return (len);
 }

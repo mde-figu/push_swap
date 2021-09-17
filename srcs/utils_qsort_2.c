@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 00:35:36 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/15 16:22:18 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/16 15:11:01 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int		get_middle(t_lst *ls, int len)
 	int		ret;
 	int		c;
 
-	printf("%i", *ls->next->value);
 	head = ls;
 	c = len;
 	ret = 0;

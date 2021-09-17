@@ -6,64 +6,56 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 10:09:56 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/14 17:09:12 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 10:57:35 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	*memfree(t_lst *node)
+void	init_stack(char **tmp, t_lst **l_a)
 {
-	free(node);
+	t_lst	*head;
+	void	*val;
+
+	if (!(val = ft_memalloc(sizeof(int))))
+		ft_error_memory();
+	head = 0;
+	while (*tmp)
+	{
+		*((int*)val) = ft_atoi(*tmp++);
+		ft_lstadd(&head, new_lst(val, sizeof(int)));
+	}
+	free(val);
+	*l_a = 0;
+	while (head)
+		un_push(l_a, &head);
+}
+
+static void	*memfree(t_lst *ls)
+{
+	free(ls);
 	return (0);
 }
 
-t_lst	*new_lst(const void *value, size_t value_size)
+t_lst	*new_lst(const void *val, size_t value_size)
 {
-	t_lst	*node;
+	t_lst	*ls;
 
-	if (!(node = (t_lst*)malloc(sizeof(t_lst))))
+	if (!(ls = (t_lst*)malloc(sizeof(t_lst))))
 		return (0);
-	node->next = 0;
-	if (!value)
+	ls->next = 0;
+	if (!val)
 	{
-		node->value = 0;
-		node->value_size = 0;
+		ls->value = 0;
+		ls->value_size = 0;
 	}
 	else
 	{
-		node->value_size = value_size;
-		if (!(node->value = malloc(node->value_size)))
-			return ((t_lst*)memfree(node));
-		ft_bzero(node->value, node->value_size);
-		ft_memcpy(node->value, value, node->value_size);
+		ls->value_size = value_size;
+		if (!(ls->value = malloc(ls->value_size)))
+			return ((t_lst*)memfree(ls));
+		ft_bzero(ls->value, ls->value_size);
+		ft_memcpy(ls->value, val, ls->value_size);
 	}
-	return (node);
-}
-
-int	to_list(char *str, t_lst **l)
-{
-	char	err;
-	t_lst	*new;
-
-	err = '\0';
-	if (!l)
-		return (0);
-	new = (t_lst *)malloc(sizeof(t_lst));
-	if (!new)
-	{
-		free(new);
-		return (0);
-	}
-	*new->value = atoi2(str, &err);
-	new->next = NULL;
-	if (!(*l))
-		*l = new;
-	else
-	{
-		new->next = *l;
-		*l = new;
-	}
-	free(new);
-	return (1);
+	return (ls);
 }

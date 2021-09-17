@@ -6,15 +6,16 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/16 14:19:54 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 09:53:30 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+# include <unistd.h>
+# include <string.h>
+# include <inttypes.h>
 # include "../libft/libft.h"
 # define TRUE 1
 # define FALSE 0
@@ -23,7 +24,7 @@
 
 typedef struct s_lst
 {
-	int				*value;
+	void			*value;
 	size_t			value_size;
 	struct s_lst	*next;
 }					t_lst;
@@ -40,11 +41,11 @@ typedef struct		s_vars
 
 int			atoi2(const char *str, char *err);
 void		testargs(char **argv);
+void		init_stack(char **tmp, t_lst **l_a);
 void		*ft_memalloc(size_t size);
 void		**freeentry(char **str, size_t i);
 void		ft_error_memory(void);
 t_vars		*set_vars(t_lst *l_a);
-int			to_list(char *str, t_lst **l);
 int			test_n(int argc, char **argv);
 void		add_to_back(t_lst **head, int input);
 t_lst		*lstn(t_lst *ls, size_t n);

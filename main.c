@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:51:48 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/16 14:14:50 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 09:53:42 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,6 @@ int	test_n(int argc, char **argv)
 	return (0);
 }
 
-
-void	init_stack(char **tmp, t_lst **l_a)
-{
-	t_lst	*head;
-	void	*val;
-
-	if (!(val = ft_memalloc(sizeof(int))))
-		ft_error_memory();
-	head = 0;
-	while (*tmp)
-	{
-		*((int*)val) = ft_atoi(*tmp++);
-		ft_lstadd(&head, new_lst(val, sizeof(int)));
-	}
-	free(val);
-	*l_a = 0;
-	while (head)
-		un_push(l_a, &head);
-}
-
 int	main(int argc, char **argv)
 {
 	t_lst	*l_a;
@@ -73,13 +53,5 @@ int	main(int argc, char **argv)
 	sort(&l_a, &l_b, vars);
 	ops_print(vars->opers);
 	set_mem_free(l_a, l_b, vars);
-	//printf("%i", *l_a->value);
-	//printf("%i", *l_a->next->value);
-	//printf("%i", *l_a->next->next->value);
-	//printf("%i", *l_a->next->next->next->value);
-	//printf("%i", *l_a->next->next->next->next->value);
-	//printf("%i", *l_a->next->next->next->next->next->value);
-	//printf("%i", *l_a->next->next->next->next->next->next->value);
-	//printf("%i", *l_a->next->next->next->next->next->next->next->value);
 	return (0);
 }
