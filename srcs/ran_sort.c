@@ -6,7 +6,7 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 13:29:36 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/13 13:17:48 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:58:25 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int		ran_sort(t_lst *ls, int len, _Bool label)
 	if (ls)
 		while (ls->next && --len)
 		{
-			if (!label && *(int*)(ls->value) > *(int*)(ls->next->value))
+			if (!label && (*(int*)(ls->value) > *(int*)(ls->next->value)))
 				++c;
-			else if (label && *(int*)(ls->value) < *(int*)ls->next->value)
+			else if (label && (*(int*)(ls->value) < *(int*)(ls->next->value)))
 				++c;
 			ls = ls->next;
 		}

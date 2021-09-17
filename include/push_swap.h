@@ -6,13 +6,14 @@
 /*   By: mde-figu <mde-figu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:49:51 by mde-figu          #+#    #+#             */
-/*   Updated: 2021/09/17 09:53:30 by mde-figu         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:35:32 by mde-figu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <string.h>
 # include <inttypes.h>
